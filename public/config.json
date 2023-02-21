@@ -1,0 +1,92 @@
+{
+    "workflowApiVersion": "1.1",
+    "metaData":
+    {
+        "icon": "images/icon.png",
+        "iconSmall": "images/iconSmall.png",
+        "category": "message"
+    },
+
+    "type": "REST",
+    "lang":
+    {
+        "en-US":
+        {
+            "name": "Indo DEV SMS application",
+            "description": "Development application for SMS integration for Indonesia",
+            "step1Label": "Configure Activity"
+        }
+    },
+    "arguments":
+    {
+        "execute":
+        {
+            "inArguments": [
+              { 
+                "firstName": "{{Contact.Attribute.SMS_Test_MY.FirstName}}",
+                "lastName": "{{Contact.Attribute.SMS_Test_MY.LastName}}", 
+                "phoneNumber": "{{Contact.Attribute.SMS_Test_MY.Mobile}}",
+                "selectedMsgID": "",
+                "campaignName": "",
+                "contactID": "",
+                "smsBoolean": "",
+                "shortMsg": ""
+              }
+            ],
+            "outArguments": [],
+            "url": "https://id-sms-app-tiger-dev.herokuapp.com/journeybuilder/execute",
+            "verb": "POST",
+            "body": "",
+            "header": "",
+            "format": "json",
+            "useJwt": true,
+            "timeout": 10000
+        }
+    },
+    
+    "configurationArguments":
+    {
+        "applicationExtensionKey": "ba1dcb38-2c00-4930-b806-6503ec19f0b0",
+        "save":
+        {
+            "url": "https://id-sms-app-tiger-dev.herokuapp.com/journeybuilder/save",
+            "verb": "POST",
+            "useJwt": true
+        },
+        "publish":
+        {
+            "url": "https://id-sms-app-tiger-dev.herokuapp.com/journeybuilder/publish",
+            "verb": "POST",
+            "useJwt": true
+        },
+        "stop":
+        {
+            "url": "https://id-sms-app-tiger-dev.herokuapp.com/journeybuilder/stop",
+            "verb": "POST",
+            "useJwt": true
+        },
+        "validate":
+        {
+            "url": "https://id-sms-app-tiger-dev.herokuapp.com/journeybuilder/validate",
+            "verb": "POST",
+            "useJwt": true
+        }
+    },
+    "userInterfaces":
+    {
+        "configModal": {
+            "height": 700,
+            "width": 1000,
+            "fullscreen": false
+        }
+    },
+    "schema": 
+    {
+        "arguments":{
+            "execute": {
+                "inArguments": [],
+                "outArguments": []
+            }
+        }
+    }
+}
